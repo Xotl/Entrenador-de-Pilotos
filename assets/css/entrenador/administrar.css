@@ -1,0 +1,51 @@
+.full-width-row {
+    width: 100%;
+    max-width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.encabezado {
+    text-align: center;
+    height: 12%;
+}
+
+.contenido {
+    height: 88%;
+}
+
+.contenido-col {
+    height: 100%;
+}
+
+.datagrid-panel {
+    height: 82%;
+}
+
+.boton-panel {
+    text-align: center;
+    height: 18%;
+}
+
+.datagrid-col {
+    height: 100%;
+}
+
+.datagrid-col .datagrid {
+    height: 85%;
+    overflow: auto;
+}
+
+.datagrid .celda-nombre{
+    text-align: left;
+}
+
+.datagrid tbody{
+    overflow-y: scroll;
+}
+
+.filaSeleccionada {
+    background-color: #FFEB9D !important;
+}

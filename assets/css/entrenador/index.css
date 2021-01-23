@@ -1,0 +1,55 @@
+.espaciado-top {
+	height: 2%;
+}
+
+.encabezado {
+    height: 20%;
+    overflow: hidden;
+}
+
+.encabezado .usuario-img {
+    padding: 0;
+	text-align: right;
+}
+
+.usuario-img img { 
+    height: 64px;
+}
+
+.encabezado .texto-piloto {
+	text-align: left;
+}
+
+.bloque-botones {
+	height: 78%;
+}
+
+.height-100per {
+	height: 100%;
+}
+
+.height-50per {
+	height: 50%;
+}
+
+.bloque-botones .col-boton-grande {
+	height: 100%;
+}
+
+.bloque-botones .boton-grande {
+	width: 70%;
+	height: 70%;
+	border-radius: 60px;
+}
+
+.boton-grande .contenedor{
+	display: table;
+	height: 100%;
+	width: 100%;
+}
+
+.contenedor .texto{
+	display: table-cell;
+	vertical-align: middle;
+	font-size: 1.5rem;
+}

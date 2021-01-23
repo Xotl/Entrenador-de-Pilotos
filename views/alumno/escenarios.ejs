@@ -1,0 +1,74 @@
+<%
+cssElements.agregar('/css/entrenador/escenarios');
+jsElements.agregar('/js/alumno/escenarios');
+%>
+<div class="row full-width-row encabezado">
+    <div class="medium-4 columns">
+        <a href="/alumno" class="medium-3 columns text-center">
+            <div class="row">
+                <div class="medium-12 columns">
+                    <img src="/images/back.png" style="width:64px"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <span>Regresar</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="medium-4 columns medium-centered text-center">
+        <h3>Seleccione un Escenario</h3>
+    </div>
+    
+</div>
+<div class="row" data-ng-controller="mostrarEscenariosCtlr">
+    <div class="medium-12 medium-centered columns text-center">
+        <ul class="small-block-grid-2 medium-block-grid-4 mosaico_escenarios">
+            <li data-ng-repeat="escenario in Escenarios">
+                <div class="escenario">
+                    <img src="/images/cube.png"/>
+                    <a href="#" data-reveal-id="Modelo-modal" data-ng-click="$parent.escenarioSeleccionado = escenario;" class="wrap">
+                        <div class="contenedor"><div><span>{{escenario.Nombre}}</span></div></div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+        <div data-ng-hide="Escenarios">
+            <h1 data-ng-hide="Escenarios">¡Vaya!, parece que no hay escenarios disponibles.</h1>
+            <h6 data-ng-hide="Escenarios">Por favor, hable con su entrenador al respecto.</h6>
+        </div>
+    </div>
+
+    
+    <div id="Error-modal" class="reveal-modal" data-reveal>
+        <h2>Ocurrió un error. =(</h2>
+        <p>No se pudieron obtener los escenarios. Por favor verifique el estado de su conexión e intente de nuevo más tarde.</p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="Modelo-modal" class="reveal-modal" data-reveal>
+        <h2>Seleccione la aeronave que usará en el escenario "{{escenarioSeleccionado.Nombre}}"</h2>
+        <div class="row">
+            <div class="small-8 medium-centered columns">
+                
+                <form action="{{'/alumno/escenarios/' + escenarioSeleccionado.id}}" method="post" autocomplete="off">
+                <% modelosDeAeronaves.forEach(function(modelo, indice) { %>
+                    <div class="row">
+                        <div class="small-9 columns">
+                            <input id="radio-<%= modelo %>" data-ng-model="Aeronave" type="radio" name="Aeronave" value="<%= indice %>">
+                            <label for="radio-<%= modelo %>" class="inline">Modelo <%= modelo %></label>
+                        </div>
+                    </div>
+                <% }); %>
+
+                    <input type="submit" class="button" value="¡Hecho! &#10154;" data-ng-disabled="Aeronave == null">
+                </form>
+                <div id="alertas-usuario-modal"></div>
+            </div>
+        </div>
+        
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+</div>

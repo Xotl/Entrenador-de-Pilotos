@@ -1,0 +1,43 @@
+<% cssElements.agregar('/css/login.css'); %>
+<div class="login-view">
+    <div class="row encabezado">
+        <div class="medium-12 medium-centered columns text-center">
+            <h1>Registro de usuarios</h1>
+        </div>
+    </div>
+    <div class="row sesion">
+        <form method="post" class="medium-5 medium-centered columns sesion-form" action="/login/registro">
+            
+            <div class="row">
+                <div class="medium-12 columns">
+                    <input name="user" type="text" placeholder="Nombre de usuario" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="medium-12 columns">
+                    <input name="password" type="password" placeholder="Contraseña" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="medium-12 columns">
+                    <input name="pass" type="password" placeholder="De nuevo" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="medium-12 columns">
+                    <input name="tipo" type="text" placeholder="Tipo de usuario" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="medium-4 medium-centered columns">
+                    <button type="submit">Entrar</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+.mosaico_escenarios .escenario {
+    position: relative;
+}
+
+.escenario .wrap {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+}
+
+.escenario .contenedor {
+	position: absolute;
+	top: 9%;
+	width: 90%;
+	height: 90%;
+	margin: 0 5%;
+	overflow: hidden;
+}
+
+.escenario .contenedor div {
+	display: table;
+	height: 100%;
+	overflow: hidden;
+	width: 100%;
+}
+
+.escenario .contenedor span {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.borrar-escenario {
+	position: absolute;
+	top: -14px;
+	left: -10px;
+}
+
+.borrar-escenario img {
+	height: 32px;
+}

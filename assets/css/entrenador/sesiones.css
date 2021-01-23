@@ -1,0 +1,52 @@
+.full-width-row {
+    width: 100%;
+    max-width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.encabezado {
+    text-align: center;
+    height: 12%;
+}
+
+.contenido {
+    height: 88%;
+}
+
+.contenido-col {
+    height: 100%;
+}
+
+.datagrid-panel {
+    text-align: center;
+    height: 82%;
+}
+
+.boton-panel {
+    text-align: center;
+    height: 18%;
+}
+
+.datagrid-col {
+    height: 100%;
+}
+
+.datagrid-col .datagrid {
+    overflow: auto;
+    height: 85%;
+}
+
+.datagrid .celda-nombre{
+    text-align: left;
+}
+
+.filaSeleccionada {
+    background-color: #FFEB9D !important;
+}
+
+.datagrid .celda-calificacion {
+    font-size: 1.8rem;
+}

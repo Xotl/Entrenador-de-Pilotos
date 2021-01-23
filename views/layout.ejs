@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en" data-ng-app="EntrenadorApp">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%- title %></title>
+    <link rel="stylesheet" href="/css/foundation.css" />
+    <link rel="stylesheet" href="/css/general.css" />
+    
+    <script src="/js/vendor/jquery.js"></script>
+    <script src="/js/vendor/modernizr.js"></script>
+    <script src="/js/vendor/angular_v1.2.14.min.js"></script>
+    <script src="/js/foundation.min.js"></script>
+
+  	<script type="text/javascript">
+  	<!--
+  	angular.module('EntrenadorApp', []);
+  	-->
+  	</script>
+    <%- jsElements.colocar() + cssElements.colocar() %>
+  </head>
+  <body>
+    <img alt="" src="/images/fondo (4).jpg" id="full-screen-background-image" />
+    <div id="wrapper">
+        <%- body %>
+    </div>
+    
+    <script>
+      $(document).foundation();
+    </script>
+  </body>
+</html>

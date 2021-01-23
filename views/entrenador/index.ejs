@@ -1,0 +1,90 @@
+<% cssElements.agregar('/css/entrenador/index'); %>
+<div class="row espaciado-top">
+    <div class="medium-12 columns">
+        <br />
+    </div>
+</div>
+<div class="row full-width-row encabezado">
+    <div class="medium-4 columns">
+        <a href="/logout" class="medium-4 columns text-center">
+            <div class="row">
+                <div class="medium-12 columns">
+                    <img src="/images/logout.png"/>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="medium-12 columns">
+                    <span>Cerrar sesión</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="medium-4 columns text-center">
+        <h4>Sección para Entrenadores</h4>
+    </div>
+    
+    <div class="medium-4 columns">
+        <div class="columns medium-3 usuario-img">
+            <img src="/images/captain_pilot.png"/>
+        </div>
+        <div class="columns medium-9 texto-piloto">
+            <div class="row">
+                <div class="medium-12 columns">
+                    <span>Entrenador</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <h4><%- nombreDelEntrenador %></h4>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row bloque-botones">
+    <div class="medium-12 medium-centered columns text-center height-100per">
+        <div class="row height-50per">
+            <div class="medium-6 columns col-boton-grande">
+                <a href="/entrenador/escenarios" class="button boton-grande">
+                    <div class="contenedor">
+                        <div class="texto">
+                            Edición de Escenarios
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="medium-6 columns col-boton-grande">
+                    <a href="/entrenador/sesiones" class="button boton-grande">
+                        <div class="contenedor">
+                            <div class="texto">
+                                Evaluar sesiones
+                            </div>
+                        </div>
+                    </a>
+            </div>
+        </div>
+        <div class="row height-50per">
+            <div class="medium-6 columns col-boton-grande">
+                <a href="/entrenador/reportes" class="button boton-grande">
+                    <div class="contenedor">
+                        <div class="texto">
+                            Reportes
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="medium-6 columns col-boton-grande">
+                <a href="/entrenador/administrar" class="button boton-grande">
+                    <div class="contenedor">
+                        <div class="texto">
+                            Administrar Pilotos y Entrenadores
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

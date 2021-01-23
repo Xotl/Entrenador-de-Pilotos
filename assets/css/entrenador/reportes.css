@@ -1,0 +1,17 @@
+.full-width-row {
+    width: 100%;
+    max-width: 100%;
+}
+
+.filtros-aplicados {
+    color: black;
+}
+
+.filtros-aplicados legend {
+    background: transparent;
+}
+
+.encabezado {
+    text-align: center;
+    height: 12%;
+}

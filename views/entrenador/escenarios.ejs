@@ -1,0 +1,72 @@
+<%
+cssElements.agregar('/css/entrenador/escenarios');
+jsElements.agregar('/js/entrenador/escenarios');
+%>
+<div class="row full-width-row encabezado">
+    <div class="medium-4 columns">
+        <a href="/entrenador" class="medium-3 columns text-center">
+            <div class="row">
+                <div class="medium-12 columns">
+                    <img src="/images/back.png" style="width:64px"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="medium-12 columns">
+                    <span>Regresar</span>
+                </div>
+            </div>
+        </a>
+    </div>
+    
+    <div class="medium-4 columns medium-centered text-center">
+        <h3>Seleccione el Escenario a editar</h3>
+    </div>
+    
+</div>
+<div class="row" data-ng-controller="EditarEscenariosCtlr">
+    <div class="medium-12 medium-centered columns text-center">
+        <ul class="small-block-grid-2 medium-block-grid-4 mosaico_escenarios">
+            <li data-ng-repeat="escenario in Escenarios">
+                <div class="escenario">
+                    <img src="/images/cube.png"/>
+                    <a data-ng-href="/entrenador/escenarios/{{escenario.id}}" class="wrap">
+                        <div class="contenedor"><div><span>{{escenario.Nombre}}</span></div></div>
+                    </a>
+                    <a data-ng-click="$parent.escenarioSeleccionado = escenario" data-reveal-id="borrar-escenario-modal" class="borrar-escenario">
+                        <img src="/images/close-circled.png"/>
+                    </a>
+                </div>
+            </li>
+            
+            <li>
+                <div class="escenario">
+                    <img src="/images/cube_add.png" class="cubo_escenario"/>
+                    <a data-ng-href="/entrenador/escenarios/nuevo" class="wrap">
+                        <div class="contenedor"><div><span>Nuevo</span></div></div>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="borrar-escenario-modal" class="reveal-modal" data-reveal>
+        <h2>¿Seguro que desea borrar el escenario "{{escenarioSeleccionado.Nombre}}"?</h2>
+        <p>Borrar el escenario significa que ya no aparecerá disponible para los alumnos, 
+        pero las sesiones que los alumnos hayan realizado en dicho escenario seguirán activas.</p>
+        <p>Una vez borrado el escenario del sistema no habrá forma de recuperarlo.</p>
+        <button data-ng-click="borrarEscenario(escenarioSeleccionado.id)" class="radius button">Sí, bórralo</button>
+        <button data-ng-click="borrarEscenario()" class="radius button">No, mejor no</button>
+    </div>
+
+    <div id="msgBox-modal" class="reveal-modal" data-reveal>
+        <h2>{{msgBox.Titulo}}</h2>
+        <p>{{msgBox.Mensaje}}</p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="Error-modal" class="reveal-modal" data-reveal>
+        <h2>Ocurrió un error. =(</h2>
+        <p>No se pudo completar la acción. Por favor verifique el estado de su conexión e intente de nuevo más tarde.</p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+</div>

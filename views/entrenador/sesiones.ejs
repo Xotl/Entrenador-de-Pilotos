@@ -1,0 +1,85 @@
+<% cssElements.agregar('/css/entrenador/sesiones'); %>
+<% jsElements.agregar('/js/entrenador/sesiones'); %>
+<div class="row full-width-row encabezado">
+    <div class="medium-1 columns">
+        <div class="row">
+            <a href="/entrenador">
+                <img src="/images/back.png" style="height:64px"/>
+            </a>
+        </div>
+        <div class="row">
+            <a href="/entrenador">
+                <span>Regresar</span>
+            </a>
+        </div>
+    </div>
+    <div class="medium-10 large-7 medium-centered columns">
+        <h2>Seleccione la sesión a evaluar</h2>
+    </div>
+</div>
+    
+<div data-ng-controller="mostrarSesionesCtlr" class="row full-width-row contenido">
+    <div class="small-12 columns contenido-col">
+    
+        <div class="row datagrid-panel">
+            <div class="medium-10 medium-centered columns datagrid-col">
+                <div class="row filtro-row">
+                    <div class="medium-4 medium-offset-8 columns">
+                        <div class="row collapse">
+                            <div class="medium-1 columns">
+                                <img class="prefix" style="border:0" src="/images/filter.png"/>
+                            </div>
+                            <div class="medium-11 columns">
+                                <input type="text" placeholder="Filtrar..." ng-model="txtFiltro">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                <div class="row datagrid">
+                    <table class="medium-12 columns">
+                        <thead>
+                            <tr>
+                                <th>Piloto</th>
+                                <th width="150">Fecha</th>
+                                <th width="200">Escenario</th>
+                                <th width="50" class="celda-calificacion">&#9997;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr data-ng-repeat="sesion in Sesiones | filtroSesiones:objFiltro" data-ng-click="select(sesion.id)" data-ng-dblclick="ContinuarClick()" ng-class="{filaSeleccionada: $parent.FilaSeleccionada == sesion.id}">
+                                <td class="celda-nombre">{{sesion.Usuario.nombre}}</td>
+                                <td>{{sesion.Fecha | date:'dd/MM/yyyy h:mm a'}}</td>
+                                <td>{{sesion.Escenario.Nombre}}</td>
+                                <td class="celda-calificacion">{{sesion.CalificacionGeneral === 0 ? '&#9744;' : '&#9745;'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="row boton-panel">
+            <div class="small-2 small-centered columns">
+                <button data-ng-click="ContinuarClick()" data-ng-disabled="FilaSeleccionada == null">Continuar</button>
+            </div>
+        </div>
+        
+    </div>
+    
+    
+    <div id="Error-modal" class="reveal-modal" data-reveal>
+        <h2>Ocurrió un error. =(</h2>
+        <p>No se pudo completar la acción. Por favor verifique el estado de su conexión e intente de nuevo más tarde.</p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="Loading-modal" class="reveal-modal" data-reveal>
+        <h2>Obteniendo evaluaciones</h2>
+        <p>Se están obteniendo y ordenando todas las sesiones realizadas, por favor espere un momento...</p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+    
+</div>

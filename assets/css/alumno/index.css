@@ -1,0 +1,88 @@
+.encabezado {
+    max-width: 100%;
+    width: 100%;
+    height: 20%;
+}
+
+.encabezado .desempeno-general {
+    outline: #000000 solid thin;
+    overflow: hidden;
+}
+
+.encabezado .iniciar-sesion img {
+    max-height: 5rem;
+}
+
+.encabezado .imagen-piloto {
+	text-align: right;
+	padding: 0;
+}
+
+.imagen-piloto img {
+	height: 64px;
+}
+
+.texto-estadisticas {
+	color: #C7A700;
+}
+
+.main-panel {
+	height: 80%;
+	max-width: 100%;
+    width: 100%;
+}
+
+.height-100p-col {
+	height: 100%;
+}
+
+.full-width-col {
+	width: 100%;
+}
+
+.statistics-panel .row {
+	height: 50%;
+}
+
+.statistics-panel canvas {
+	height: 90%;
+	padding: 0;
+}
+/*
+.config-chart {
+	position: absolute;
+	top: 0;
+	left: 0;
+	font-size: 1.4rem;
+}*/
+
+#historialEscenariosLineChart {
+	width: 100%;
+}
+
+#no-hay-panel {
+	display: table;
+	width: 100%;
+}
+
+#no-hay-panel .no-hay-cont {
+	display: table-cell;
+	vertical-align: middle;	
+}
+
+#no-hay-panel .no-hay-cont .columns {
+	text-align: center;
+}
+
+.sesiones-resultados-busqueda {
+	max-height: 22rem;
+	overflow: auto;
+}
+
+.seleccionada {
+	background-color: #FCF6B7 !important;
+}
+
+.leyenda-escenarios {
+	list-style-type: none;
+}

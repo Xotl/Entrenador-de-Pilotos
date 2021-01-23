@@ -1,0 +1,37 @@
+<% cssElements.agregar('/css/login.css'); %>
+<div class="login-view">
+    <div class="row encabezado">
+        <div class="medium-12 medium-centered columns text-center">
+            <h1>¡Bienvenido!, por favor inicie sesión.</h1>
+        </div>
+    </div>
+    <div class="row sesion">
+        <form method="post" class="medium-5 medium-centered columns sesion-form" action="/login/auth?redirect=<%= redirect %>">
+            <input type='hidden' name='_csrf' value='<%= _csrf %>'>
+            
+            <div class="row">
+                <div class="medium-12 columns">
+                    <input name="user" type="text" placeholder="Nombre de usuario" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="medium-12 columns">
+                    <input name="password" type="password" placeholder="Contraseña" />
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="medium-4 medium-centered columns">
+                    <button type="submit">Entrar</button>
+                </div>
+            </div>
+            
+        </form>
+    </div>
+    <div class="row footer">
+        <div class="medium-4 left columns">
+            <a href="#">Créditos</a>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,129 @@
+<%  cssElements.agregar('/css/entrenador/reportes');
+	jsElements.agregar('/js/entrenador/reportes'); %>
+<div class="row full-width-row encabezado">
+    <div class="medium-1 columns">
+        <div class="row">
+            <a href="/entrenador">
+                <img src="/images/back.png" style="height:64px"/>
+            </a>
+        </div>
+        <div class="row">
+            <a href="/entrenador">
+                <span>Regresar</span>
+            </a>
+        </div>
+    </div>
+    <div class="medium-10 large-7 medium-centered columns">
+        <h2>Reportes</h2>
+    </div>
+</div>
+<div class="row" data-ng-controller="reportesCtlr">
+	<div class="medium-12 columns">
+		<div class="row">
+			<div class="medium-10 columns">
+				<label>
+					<span data-ng-hide="HayFiltros()">Puede buscar un grupo de usuarios usando filtros</span>
+					<span data-ng-show="HayFiltros()"><strong>Filtros: </strong>
+						<span data-ng-show="Filtros.calMin || Filtros.calMax">Calificación 
+							<span data-ng-show="Filtros.calMin">mayor que {{Filtros.calMin | promedioEnTexto}}</span>
+							<span data-ng-show="Filtros.calMin && Filtros.calMax"> y </span>
+							<span data-ng-show="Filtros.calMax">menor que {{Filtros.calMax | promedioEnTexto}}</span>
+						</span>
+
+						<span data-ng-show="Filtros.modelo">
+							<span data-ng-show="Filtros.calMin || Filtros.calMax">, </span>
+							{{Filtros.modelo}}
+						</span>
+
+						<span data-ng-show="Filtros.escenario">
+							<span data-ng-show="Filtros.calMin || Filtros.calMax || Filtros.modelo">, </span>
+							"{{Filtros.escenario.Nombre}}"
+						</span>
+					</span>
+		    		<input type="text" placeholder="Buscar usuario(s)" data-ng-model="Filtros.search"/>
+			    </label>
+			</div>
+			<div class="medium-2 columns">
+				<button data-reveal-id="Filtros-modal">
+					<span data-ng-show="HayFiltros()">Editar </span>Filtros
+				</button>
+			</div>
+		</div>
+		<div class="row">
+			<table class="medium-12 columns">
+                <thead>
+                    <tr>
+                        <th>Nombre</th>
+                        <th width="150">Username</th>
+                        <th width="100">Promedio</th>
+                        <th width="100">Sesiones realizadas</th>
+                        <th width="50">&#9998;</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-ng-repeat="alumno in Alumnos|filtroAlumnos:Filtros.search">
+                        <td class="celda-nombre">{{alumno.nombre}}</td>
+                        <td>{{alumno.username}}</td>
+                        <td>{{alumno.promedioGeneral | promedioEnTexto}}</td>
+                        <td>{{alumno.totalDeSesionesRealizadas}}</td>
+                        <td><a href="{{'/entrenador/reportes/' + alumno.id}}">detalles</a></td>
+                    </tr>
+                    <tr data-ng-hide="filtroAlumnos:Filtros.search">
+                        <h4>No hay alumnos para mostrar</h4>
+                    </tr>
+                </tbody>
+            </table>
+		</div>
+	</div>
+
+	<div id="Filtros-modal" class="reveal-modal" data-reveal>
+        <h2>Filtros para mostrar alumnos</h2>
+        <fieldset>
+        	<legend>Rango de Calificación</legend>
+            <div class="row">
+                <div class="medium-6 columns">
+                    <label>Calificación mínima
+                        <select data-ng-model="Filtros.calMin" ng-options="valor as key for (key , valor) in calificacionesEnum|calMinF:Filtros.calMax">
+                        	<option value="">-- Cualquiera --</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="medium-6 columns">
+                    <label>Calificación máxima
+                        <select data-ng-model="Filtros.calMax" ng-options="valor as key for (key , valor) in calificacionesEnum|calMaxF:Filtros.calMin">
+                        	<option value="">-- Cualquiera --</option>
+                        </select>
+                    </label>
+                </div>
+            </div>
+        </fieldset>
+
+        <fieldset>
+        	<legend>Modelo de aeronave</legend>
+            <select data-ng-model="Filtros.modelo" ng-options="modelo for modelo in modelosAeronaves">
+            	<option value="">-- Cualquiera --</option>
+        	</select>
+        </fieldset>
+
+        <fieldset>
+        	<legend>Escenario</legend>
+            <select data-ng-model="Filtros.escenario" ng-options="escenario as escenario.Nombre for escenario in Escenarios">
+            	<option value="">-- Cualquiera --</option>
+        	</select>
+        </fieldset>
+        <a href="#" class="button" data-ng-click="aplicarFiltros()">Aplicar</a>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+	<div id="Loading-modal" class="reveal-modal" data-reveal>
+        <h2>Por favor espere...</h2>
+        <p>Se están obteniendo y ordenando todos los datos necesarios, no tardará mucho. ;)</p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+
+    <div id="Error-modal" class="reveal-modal" data-reveal>
+        <h2>Ocurrió un error. =(</h2>
+        <p>No se pudo completar la acción. Por favor verifique el estado de su conexión e intente de nuevo más tarde.</p>
+        <a class="close-reveal-modal">&#215;</a>
+    </div>
+</div>

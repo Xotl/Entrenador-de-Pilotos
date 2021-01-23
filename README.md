@@ -1,4 +1,3 @@
-Entrenador-de-Pilotos-NodeJS
-============================
+# Entrenador de pilotos
 
-Entrenador de pilotos ITSZ
+a [Sails](http://sailsjs.org) application
