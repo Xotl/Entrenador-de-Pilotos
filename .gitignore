@@ -1,0 +1,30 @@
+Entrenador para pilotos.userprefs
+
+########################
+# Unity
+########################
+Library
+obj
+ProjectSettings
+Temp
+*.unityproj
+*.meta
+*.userprefs
+
+########################
+# Visual Studio
+########################
+*.csproj
+*.pidb
+*.sln
+*.suo
+
+########################
+# misc / editors
+########################
+*~
+*#
+.DS_STORE
+.netbeans
+nbproject
+.idea

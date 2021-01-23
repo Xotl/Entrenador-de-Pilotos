@@ -1,0 +1,6 @@
++ Falta una opción para regresar o cancelar la realización de una sesión.
+
++ Falta un botón de borrar etapa y uno de borrar solución en el editor de escenarios.
+
++ Hay un error al momento de editar un escenario en donde existe la posibilidad de guardar síntomas en 0 (vacíos).
+Quizás es al momento de editar varias veces sin recargar la escena, pues no siempre ocurre.
